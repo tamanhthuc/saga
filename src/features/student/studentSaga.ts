@@ -20,6 +20,5 @@ function* handleSearchDebounce(action: PayloadAction<ListParams>) {
 
 export default function* studentSaga() {
   yield takeLatest(studentActions.fetchStudentList, fetchStudentList);
-
   yield debounce(500, studentActions.setFilterWithDebounce.type, handleSearchDebounce);
 }

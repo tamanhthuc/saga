@@ -4,7 +4,7 @@ import studentApi from 'api/studentApi';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
 import { selectCityList, selectCityMap } from 'features/city/citySlice';
 import { ListParams, Student } from 'models';
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import StudentFilters from '../components/StudentFilters';
@@ -49,7 +49,6 @@ export default function ListPage() {
   const loading = useAppSelector(selectStudenLoading);
   const cityMap = useAppSelector(selectCityMap);
   const cityList = useAppSelector(selectCityList);
-
   const dispatch = useAppDispatch();
   const classes = useStyles();
 
@@ -65,7 +64,7 @@ export default function ListPage() {
       })
     );
   };
-
+  
   const handleSearchChange = (newFilter: ListParams) => {
     dispatch(studentActions.setFilterWithDebounce(newFilter));
   };

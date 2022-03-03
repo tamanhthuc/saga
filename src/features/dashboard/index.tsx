@@ -34,7 +34,7 @@ export default function Dashboard() {
   const highestStudentList = useAppSelector(selectHighestStudentList);
   const lowestStudentList = useAppSelector(selectLowestStudentList);
   const rankingByCityList = useAppSelector(selectRankingByCityList);
-
+ 
   const classes = useStyles();
 
   useEffect(() => {

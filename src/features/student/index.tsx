@@ -9,12 +9,15 @@ export default function StudentFeature() {
   const match = useRouteMatch();
   const dispatch = useAppDispatch();
 
+  console.log("match", match.path)
+
   useEffect(() => {
     dispatch(cityActions.fetchCityList());
   }, [dispatch]);
 
   return (
     <Switch>
+      
       <Route path={match.path} exact>
         <ListPage />
       </Route>

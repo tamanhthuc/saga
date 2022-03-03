@@ -48,6 +48,7 @@ const schema = yup.object().shape({
 
 export default function StudentForm({ initialValues, onSubmit }: StudentFormProps) {
   const cityOptions = useAppSelector(selectCityOptions);
+  console.log("cityOptions", cityOptions)
   const [error, setError] = useState<string>('');
 
   const {

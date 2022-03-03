@@ -9,10 +9,11 @@ function* fetchStatistics() {
     call(studentApi.getAll, { _page: 1, _limit: 1, gender: 'male' }),
     call(studentApi.getAll, { _page: 1, _limit: 1, gender: 'female' }),
     call(studentApi.getAll, { _page: 1, _limit: 1, mark_gte: 8 }),
-    call(studentApi.getAll, { _page: 1, _limit: 1, mark_lte: 5 }),
+    call(studentApi.getAll, { _page: 1, _limit: 1, mark_lte: 5 }),  
   ]);
 
   const statisticList = responseList.map((x) => x.pagination._totalRows);
+  
   const [maleCount, femaleCount, highMarkCount, lowMarkCount] = statisticList;
   yield put(
     dashboardActions.setStatistics({ maleCount, femaleCount, highMarkCount, lowMarkCount })
@@ -26,6 +27,7 @@ function* fetchHighestStudentList() {
     _sort: 'mark',
     _order: 'desc',
   });
+ 
 
   yield put(dashboardActions.setHighestStudentList(data));
 }
@@ -56,6 +58,7 @@ function* fetchRankingByCityList() {
     })
   );
   const responseList: Array<ListResponse<Student>> = yield all(callList);
+  
   const rankingByCityList: Array<RankingByCity> = responseList.map((x, idx) => ({
     cityId: cityList[idx].code,
     cityName: cityList[idx].name,

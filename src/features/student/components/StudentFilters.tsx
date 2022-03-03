@@ -33,8 +33,9 @@ export default function StudentFilters({
     onSearchChange(newFilter);
   };
 
-  const handleCityChange = (e: ChangeEvent<{ name?: string; value: unknown }>) => {
-    if (!onChange) return;
+  function handleCityChange(e: ChangeEvent<{ name?: string; value: unknown; }>): void {
+    if (!onChange)
+      return;
 
     const newFilter: ListParams = {
       ...filter,
@@ -42,12 +43,13 @@ export default function StudentFilters({
       city: e.target.value || undefined,
     };
     onChange(newFilter);
-  };
+  }
 
   const handleSortChange = (e: ChangeEvent<{ name?: string; value: unknown }>) => {
     if (!onChange) return;
 
     const value = e.target.value;
+
     const [_sort, _order] = (value as string).split('.');
     const newFilter: ListParams = {
       ...filter,
@@ -107,7 +109,7 @@ export default function StudentFilters({
 
               {cityList.map((city) => (
                 <MenuItem key={city.code} value={city.code}>
-                  {city.name}
+                  {city.name}  
                 </MenuItem>
               ))}
             </Select>
