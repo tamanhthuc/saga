@@ -4,7 +4,7 @@ import studentApi from 'api/studentApi';
 import { useAppDispatch, useAppSelector } from 'app/hooks';
 import { selectCityList, selectCityMap } from 'features/city/citySlice';
 import { ListParams, Student } from 'models';
-import React, { useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import StudentFilters from '../components/StudentFilters';
@@ -14,7 +14,7 @@ import {
   selectStudentFilter,
   selectStudentList,
   selectStudentPagination,
-  studentActions,
+  studentActions
 } from '../studentSlice';
 
 const useStyles = makeStyles((theme) => ({

@@ -1,6 +1,4 @@
-import { NotFound, PrivateRoute } from 'components/Common';
 import { AdminLayout } from 'components/Layout';
-import LoginPage from 'features/auth/pages/LoginPage';
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
